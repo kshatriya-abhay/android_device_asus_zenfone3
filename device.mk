@@ -476,7 +476,8 @@ PRODUCT_COPY_FILES += \
 
 PRODUCT_PACKAGES += \
     libcurl \
-    tcpdump
+    tcpdump \
+    AsusParts
 
 # IMS
 PRODUCT_PACKAGES += \
