@@ -24,10 +24,22 @@
 
     <PreferenceCategory
         android:title="@string/graphics_title">
-	<PreferenceScreen
-	    android:key="kcal"
-	    android:fragment="org.omnirom.device.DisplayCalibration"
-	    android:summary="@string/kcal_summary"
-	    android:title="@string/kcal_title" />
+        <PreferenceScreen
+            android:key="kcal"
+            android:fragment="org.omnirom.device.DisplayCalibration"
+            android:summary="@string/kcal_summary"
+            android:title="@string/kcal_title" />
     </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/touchscreen_title">
+        <SwitchPreference
+            android:key="glove_mode"
+            android:title="@string/glove_mode_title"
+            android:summary="@string/glove_mode_summary"
+            android:icon="@null"
+            android:paddingLeft="0dp"
+            android:persistent="false" />
+    </PreferenceCategory>
+
 </PreferenceScreen>

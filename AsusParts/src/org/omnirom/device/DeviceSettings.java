@@ -19,8 +19,10 @@ package org.omnirom.device;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.content.Context;
 import android.content.res.Resources;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.ListPreference;
 import android.preference.Preference;
@@ -28,6 +30,8 @@ import android.preference.Preference.OnPreferenceClickListener;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceCategory;
 import android.preference.PreferenceScreen;
+import android.preference.PreferenceManager;
+import android.preference.SwitchPreference;
 import android.provider.Settings;
 import android.text.TextUtils;
 import android.view.MenuItem;
@@ -41,12 +45,20 @@ public class DeviceSettings extends PreferenceActivity implements
         Preference.OnPreferenceChangeListener {
 
     public static final String KEY_VIBSTRENGTH = "vib_strength";
+    public static final String KEY_GLOVE_MODE = "glove_mode";
 
     private VibratorStrengthPreference mVibratorStrength;
+    private SwitchPreference mGloveMode;
+
+    private SharedPreferences mPrefs;
+
+    private static final String GLOVE_MODE_FILE = "/sys/devices/soc/78b7000.i2c/i2c-3/3-0038/glove_mode";
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        mPrefs = PreferenceManager.getDefaultSharedPreferences(this);
+
         getActionBar().setDisplayHomeAsUpEnabled(true);
 
         addPreferencesFromResource(R.xml.main);
@@ -64,6 +76,16 @@ public class DeviceSettings extends PreferenceActivity implements
         if (mVibratorStrength != null) {
             mVibratorStrength.setEnabled(VibratorStrengthPreference.isSupported());
         }
+
+        mGloveMode = (SwitchPreference) findPreference(KEY_GLOVE_MODE);
+        mGloveMode.setChecked(mPrefs.getBoolean(DeviceSettings.KEY_GLOVE_MODE, false));
+        mGloveMode.setOnPreferenceChangeListener(this);
+
+    }
+
+    public static void restore(Context context) {
+        boolean gloveModeData = PreferenceManager.getDefaultSharedPreferences(context).getBoolean(DeviceSettings.KEY_GLOVE_MODE, false);
+        Utils.writeValue(GLOVE_MODE_FILE, gloveModeData ? "1" : "0");
     }
 
     @Override
@@ -85,6 +107,11 @@ public class DeviceSettings extends PreferenceActivity implements
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
+        if (preference == mGloveMode) {
+            Boolean enabled = (Boolean) newValue;
+            mPrefs.edit().putBoolean(KEY_GLOVE_MODE, enabled).commit();
+            Utils.writeValue(GLOVE_MODE_FILE, enabled ? "1" : "0");
+        }
         return true;
     }
 }
