@@ -66,7 +66,7 @@ BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x01000000 --tags_offset 0x00000100
 TARGET_KERNEL_ARCH := arm64
 TARGET_KERNEL_HEADER_ARCH := arm64
 TARGET_KERNEL_SOURCE := kernel/asus/msm8953
-TARGET_KERNEL_CONFIG := lineage_Z017_defconfig
+TARGET_KERNEL_CONFIG := milkshake_zenfone3_defconfig
 TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/kernel
 
 # Audio
