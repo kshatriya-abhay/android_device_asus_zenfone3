@@ -412,4 +412,9 @@
     in hardware. -->
     <bool name="config_setColorTransformAccelerated">true</bool>
 
+    <!-- Proximity check on screen on -->
+    <bool name="config_proximityCheckOnWake">true</bool>
+
+    <!-- Proximity check on screen on default -->
+    <bool name="config_proximityCheckOnWakeEnabledByDefault">true</bool>
 </resources>
