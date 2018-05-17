@@ -24,14 +24,14 @@ import android.content.res.Resources;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.preference.ListPreference;
-import android.preference.Preference;
-import android.preference.Preference.OnPreferenceClickListener;
-import android.preference.PreferenceActivity;
-import android.preference.PreferenceCategory;
-import android.preference.PreferenceScreen;
-import android.preference.PreferenceManager;
-import android.preference.SwitchPreference;
+import android.support.v14.preference.PreferenceFragment;
+import android.support.v7.preference.ListPreference;
+import android.support.v7.preference.Preference;
+import android.support.v7.preference.Preference.OnPreferenceClickListener;
+import android.support.v7.preference.PreferenceCategory;
+import android.support.v7.preference.PreferenceScreen;
+import android.support.v7.preference.PreferenceManager;
+import android.support.v7.preference.TwoStatePreference;
 import android.provider.Settings;
 import android.text.TextUtils;
 import android.view.MenuItem;
@@ -41,32 +41,26 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 import android.util.Log;
 
-public class DeviceSettings extends PreferenceActivity implements
+public class DeviceSettings extends PreferenceFragment implements
         Preference.OnPreferenceChangeListener {
 
     public static final String KEY_VIBSTRENGTH = "vib_strength";
     public static final String KEY_GLOVE_MODE = "glove_mode";
 
     private VibratorStrengthPreference mVibratorStrength;
-    private SwitchPreference mGloveMode;
-
-    private SharedPreferences mPrefs;
+    private TwoStatePreference mGloveMode;
 
     private static final String GLOVE_MODE_FILE = "/sys/devices/soc/78b7000.i2c/i2c-3/3-0038/glove_mode";
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        mPrefs = PreferenceManager.getDefaultSharedPreferences(this);
+    public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
+        setPreferencesFromResource(R.xml.main, rootKey);
 
-        getActionBar().setDisplayHomeAsUpEnabled(true);
-
-        addPreferencesFromResource(R.xml.main);
         PreferenceScreen mKcalPref = (PreferenceScreen) findPreference("kcal");
         mKcalPref.setOnPreferenceClickListener(new OnPreferenceClickListener() {
              @Override
              public boolean onPreferenceClick(Preference preference) {
-                 Intent intent = new Intent(getApplicationContext(), DisplayCalibration.class);
+                 Intent intent = new Intent(getActivity().getApplicationContext(), DisplayCalibration.class);
                  startActivity(intent);
                  return true;
              }
@@ -77,8 +71,8 @@ public class DeviceSettings extends PreferenceActivity implements
             mVibratorStrength.setEnabled(VibratorStrengthPreference.isSupported());
         }
 
-        mGloveMode = (SwitchPreference) findPreference(KEY_GLOVE_MODE);
-        mGloveMode.setChecked(mPrefs.getBoolean(DeviceSettings.KEY_GLOVE_MODE, false));
+        mGloveMode = (TwoStatePreference) findPreference(KEY_GLOVE_MODE);
+        mGloveMode.setChecked(PreferenceManager.getDefaultSharedPreferences(getContext()).getBoolean(DeviceSettings.KEY_GLOVE_MODE, false));
         mGloveMode.setOnPreferenceChangeListener(this);
 
     }
@@ -89,27 +83,16 @@ public class DeviceSettings extends PreferenceActivity implements
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-        case android.R.id.home:
-            finish();
-            return true;
-        default:
-            break;
-        }
-        return super.onOptionsItemSelected(item);
-    }
-
-    @Override
-    public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
-        return super.onPreferenceTreeClick(preferenceScreen, preference);
+    public boolean onPreferenceTreeClick(Preference preference) {
+        return super.onPreferenceTreeClick(preference);
     }
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
         if (preference == mGloveMode) {
             Boolean enabled = (Boolean) newValue;
-            mPrefs.edit().putBoolean(KEY_GLOVE_MODE, enabled).commit();
+            SharedPreferences.Editor prefChange = PreferenceManager.getDefaultSharedPreferences(getContext()).edit();
+            prefChange.putBoolean(KEY_GLOVE_MODE, enabled).commit();
             Utils.writeValue(GLOVE_MODE_FILE, enabled ? "1" : "0");
         }
         return true;

@@ -13,19 +13,30 @@
         android:targetSdkVersion="25" />
     <application
         android:label="@string/advanced_settings"
-        android:theme="@android:style/Theme.DeviceDefault.Settings"
+        android:theme="@style/AppTheme"
         android:supportsRtl="true" >
         <activity
+            android:name="org.omnirom.device.DeviceSettingsActivity"
+            android:exported="false"
+            android:label="@string/advanced_settings"
+            android:launchMode="singleTask" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity-alias
             android:name="org.omnirom.device.DeviceSettings"
             android:exported="true"
-            android:label="@string/advanced_settings" >
+            android:label="@string/advanced_settings"
+            android:targetActivity="DeviceSettingsActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
-        </activity>
-	<activity
+        </activity-alias>
+        <activity
             android:name="org.omnirom.device.DisplayCalibration"
             android:exported="true"
             android:label="@string/kcal_title" >
@@ -33,7 +44,7 @@
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
-	</activity>
+        </activity>
         <receiver android:name="org.omnirom.device.Startup" >
             <intent-filter android:priority="100" >
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
