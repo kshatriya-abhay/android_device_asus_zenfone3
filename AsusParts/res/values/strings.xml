@@ -40,4 +40,6 @@
     <string name="touchscreen_title">Touchscreen &amp; Gestures</string>
     <string name="glove_mode_title">Glove Mode</string>
     <string name="glove_mode_summary">Increase touch sensitivity ( May decrease battery life. )</string>
+    <string name="prox_wake_title">Proximity Wake Detection</string>
+    <string name="prox_wake_summary">Prevent accidental wakeups caused by gestures</string>
 </resources>

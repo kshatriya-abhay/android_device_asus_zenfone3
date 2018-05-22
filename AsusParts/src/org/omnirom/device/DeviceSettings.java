@@ -46,11 +46,14 @@ public class DeviceSettings extends PreferenceFragment implements
 
     public static final String KEY_VIBSTRENGTH = "vib_strength";
     public static final String KEY_GLOVE_MODE = "glove_mode";
+    public static final String KEY_PROX_WAKE = "prox_wake";
 
     private VibratorStrengthPreference mVibratorStrength;
     private TwoStatePreference mGloveMode;
+    private TwoStatePreference mProxWake;
 
     private static final String GLOVE_MODE_FILE = "/sys/devices/soc/78b7000.i2c/i2c-3/3-0038/glove_mode";
+    private static final String PROX_WAKE_FILE = "/sys/devices/soc/78b7000.i2c/i2c-3/3-0038/Enable_Proximity_Check";
 
     @Override
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
@@ -75,11 +78,17 @@ public class DeviceSettings extends PreferenceFragment implements
         mGloveMode.setChecked(PreferenceManager.getDefaultSharedPreferences(getContext()).getBoolean(DeviceSettings.KEY_GLOVE_MODE, false));
         mGloveMode.setOnPreferenceChangeListener(this);
 
+        mProxWake = (TwoStatePreference) findPreference(KEY_PROX_WAKE);
+        mProxWake.setChecked(PreferenceManager.getDefaultSharedPreferences(getContext()).getBoolean(DeviceSettings.KEY_PROX_WAKE, false));
+        mProxWake.setOnPreferenceChangeListener(this);
+
     }
 
     public static void restore(Context context) {
         boolean gloveModeData = PreferenceManager.getDefaultSharedPreferences(context).getBoolean(DeviceSettings.KEY_GLOVE_MODE, false);
         Utils.writeValue(GLOVE_MODE_FILE, gloveModeData ? "1" : "0");
+        boolean proxWakeData =  PreferenceManager.getDefaultSharedPreferences(context).getBoolean(DeviceSettings.KEY_PROX_WAKE, false);
+        Utils.writeValue(PROX_WAKE_FILE, proxWakeData ? "1" : "0");
     }
 
     @Override
@@ -94,6 +103,11 @@ public class DeviceSettings extends PreferenceFragment implements
             SharedPreferences.Editor prefChange = PreferenceManager.getDefaultSharedPreferences(getContext()).edit();
             prefChange.putBoolean(KEY_GLOVE_MODE, enabled).commit();
             Utils.writeValue(GLOVE_MODE_FILE, enabled ? "1" : "0");
+        } else if (preference == mProxWake) {
+            Boolean enabled = (Boolean) newValue;
+            SharedPreferences.Editor prefChange = PreferenceManager.getDefaultSharedPreferences(getContext()).edit();
+            prefChange.putBoolean(KEY_PROX_WAKE, enabled).commit();
+            Utils.writeValue(PROX_WAKE_FILE, enabled ? "1" : "0");
         }
         return true;
     }
