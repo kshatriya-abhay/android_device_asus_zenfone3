@@ -59,6 +59,3 @@
 /sys/bus/platform/drivers/kcal_ctrl(/.*)?		              u:object_r:kcal_dev:s0
 
 /cache/org\.omnirom\.device\.dex                                      u:object_r:dalvikcache_data_file:s0
-
-# Asus
-/system/bin/ssn                                 u:object_r:asus_ssn_exec:s0
