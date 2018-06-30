@@ -35,3 +35,6 @@ PRODUCT_MANUFACTURER := asus
 PRODUCT_GMS_CLIENTID_BASE := android-asus
 
 PRODUCT_SYSTEM_PROPERTY_BLACKLIST := ro.product.name
+
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.carbon.maintainer="Makornthawat Emery"
