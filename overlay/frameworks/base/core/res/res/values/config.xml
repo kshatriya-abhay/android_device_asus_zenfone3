@@ -400,6 +400,10 @@
          The default is false. -->
     <bool name="config_suspendWhenScreenOffDueToProximity">true</bool>
 
+    <!-- Time to give to the proximity sensor before toggling the flashlight with the Power button.
+         Set to -1 to disable the proximity sensor check at all-->
+    <integer name="config_flashlightProximityTimeout">-1</integer>
+
     <!-- Package name providing network location support. Used only when
          config_enableNetworkLocationOverlay is false. -->
     <string name="config_networkLocationProviderPackageName" translatable="false">com.qualcomm.location</string>
