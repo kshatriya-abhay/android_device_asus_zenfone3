@@ -156,6 +156,7 @@ PRODUCT_PACKAGES += \
 # Camera
 PRODUCT_PACKAGES += \
     bspcapability \
+    Snap \
     libbson
 
 PRODUCT_PACKAGES += \
