@@ -49,6 +49,14 @@
             android:icon="@drawable/ic_proximity_check"
             android:paddingLeft="0dp"
             android:persistent="false" />
+        <SwitchPreference
+            android:key="swipe2wake"
+            android:title="@string/swipe2wake_title"
+            android:summary="@string/swipe2wake_summary"
+            android:icon="@drawable/ic_swipe2wake"
+            android:paddingLeft="0dp"
+            android:persistent="false" />
+
         <!--
         <SwitchPreference
             android:key="keypad_mode"

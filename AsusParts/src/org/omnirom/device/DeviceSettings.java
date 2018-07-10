@@ -47,13 +47,16 @@ public class DeviceSettings extends PreferenceFragment implements
     public static final String KEY_VIBSTRENGTH = "vib_strength";
     public static final String KEY_GLOVE_MODE = "glove_mode";
     public static final String KEY_PROX_WAKE = "prox_wake";
+    public static final String KEY_SWIPE2WAKE = "swipe2wake";
 
     private VibratorStrengthPreference mVibratorStrength;
     private TwoStatePreference mGloveMode;
     private TwoStatePreference mProxWake;
+    private TwoStatePreference mSwipe2Wake;
 
     private static final String GLOVE_MODE_FILE = "/sys/devices/soc/78b7000.i2c/i2c-3/3-0038/glove_mode";
     private static final String PROX_WAKE_FILE = "/sys/devices/soc/78b7000.i2c/i2c-3/3-0038/Enable_Proximity_Check";
+    private static final String SWIPE2WAKE_FILE = "/sys/devices/soc/78b7000.i2c/i2c-3/3-0038/swipeup_mode";
 
     @Override
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
@@ -82,6 +85,10 @@ public class DeviceSettings extends PreferenceFragment implements
         mProxWake.setChecked(PreferenceManager.getDefaultSharedPreferences(getContext()).getBoolean(DeviceSettings.KEY_PROX_WAKE, false));
         mProxWake.setOnPreferenceChangeListener(this);
 
+        mSwipe2Wake = (TwoStatePreference) findPreference(KEY_SWIPE2WAKE);
+        mSwipe2Wake.setChecked(PreferenceManager.getDefaultSharedPreferences(getContext()).getBoolean(DeviceSettings.KEY_SWIPE2WAKE, false));
+        mSwipe2Wake.setOnPreferenceChangeListener(this);
+
     }
 
     public static void restore(Context context) {
@@ -89,6 +96,8 @@ public class DeviceSettings extends PreferenceFragment implements
         Utils.writeValue(GLOVE_MODE_FILE, gloveModeData ? "1" : "0");
         boolean proxWakeData =  PreferenceManager.getDefaultSharedPreferences(context).getBoolean(DeviceSettings.KEY_PROX_WAKE, false);
         Utils.writeValue(PROX_WAKE_FILE, proxWakeData ? "1" : "0");
+        boolean swipe2WakeData =  PreferenceManager.getDefaultSharedPreferences(context).getBoolean(DeviceSettings.KEY_SWIPE2WAKE, false);
+        Utils.writeValue(SWIPE2WAKE_FILE, swipe2WakeData ? "1" : "0");
     }
 
     @Override
@@ -108,6 +117,11 @@ public class DeviceSettings extends PreferenceFragment implements
             SharedPreferences.Editor prefChange = PreferenceManager.getDefaultSharedPreferences(getContext()).edit();
             prefChange.putBoolean(KEY_PROX_WAKE, enabled).commit();
             Utils.writeValue(PROX_WAKE_FILE, enabled ? "1" : "0");
+        } else if (preference == mSwipe2Wake) {
+            Boolean enabled = (Boolean) newValue;
+            SharedPreferences.Editor prefChange = PreferenceManager.getDefaultSharedPreferences(getContext()).edit();
+            prefChange.putBoolean(KEY_SWIPE2WAKE, enabled).commit();
+            Utils.writeValue(SWIPE2WAKE_FILE, enabled ? "1" : "0");
         }
         return true;
     }
