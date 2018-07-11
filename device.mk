@@ -127,6 +127,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.config.media_vol_steps=15 \
     ro.config.vc_call_vol_steps=7
 
+# Audio Recorder
+PRODUCT_PACKAGES += \
+    AudioRecorder
+
 # Voice recognition
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/audio/sound_trigger_mixer_paths.xml:$(TARGET_COPY_OUT_VENDOR)/etc/sound_trigger_mixer_paths.xml \
