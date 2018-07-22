@@ -13,28 +13,21 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# Inherit Carbon configs.
-$(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
-$(call inherit-product, vendor/carbon/config/common.mk)
-$(call inherit-product, vendor/carbon/config/gsm.mk)
+# Inherit Arrow configs.
+$(call inherit-product, vendor/arrow/config/common.mk)
 
 # Include telephony stuff
+$(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
-$(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 
 # Inherit from zenfone3 device
 $(call inherit-product, device/asus/zenfone3/device.mk)
 $(call inherit-product-if-exists, vendor/asus/zenfone3/zenfone3-vendor.mk)
 
-# Device identifier. This must come after all inclusions
+# Device identifier. This must come after all inclusions.
 PRODUCT_DEVICE := zenfone3
-PRODUCT_NAME := carbon_zenfone3
+PRODUCT_NAME := arrow_zenfone3
 PRODUCT_BRAND := asus
 PRODUCT_MANUFACTURER := asus
 
 PRODUCT_GMS_CLIENTID_BASE := android-asus
-
-PRODUCT_SYSTEM_PROPERTY_BLACKLIST := ro.product.name
-
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.carbon.maintainer="Makornthawat Emery"

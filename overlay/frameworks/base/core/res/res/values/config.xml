@@ -218,15 +218,6 @@
     <!-- Is the notification LED intrusive? Used to decide if there should be a disable option -->
     <bool name="config_intrusiveNotificationLed">true</bool>
 
-    <!-- Does the battery LED support multiple colors for notifications? Used to decide if the user can change the colors -->
-    <bool name="config_multiColorNotificationLed">true</bool>
-
-    <!-- Is the battery LED intrusive? Used to decide if there should be a disable option -->
-    <bool name="config_intrusiveBatteryLed">true</bool>
-
-    <!-- Does the battery LED support multiple colors? Used to decide if the user can change the colors -->
-    <bool name="config_multiColorBatteryLed">true</bool>
-
     <!-- If this is true, the screen will come on when you unplug usb/power/whatever. -->
     <bool name="config_unplugTurnsOnScreen">true</bool>
 
@@ -399,10 +390,6 @@
          Otherwise, the device may fail to wake out of suspend reliably.
          The default is false. -->
     <bool name="config_suspendWhenScreenOffDueToProximity">true</bool>
-
-    <!-- Time to give to the proximity sensor before toggling the flashlight with the Power button.
-         Set to -1 to disable the proximity sensor check at all-->
-    <integer name="config_flashlightProximityTimeout">-1</integer>
 
     <!-- Package name providing network location support. Used only when
          config_enableNetworkLocationOverlay is false. -->
