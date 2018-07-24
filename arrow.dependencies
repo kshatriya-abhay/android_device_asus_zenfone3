@@ -1,15 +1,14 @@
 [
-   {
-   "remote": "kshatriya-abhay",
+  {
    "repository": "android_kernel_asus_msm8953",
-   "target_path": "kernel/asus/msm8953",
-   "branch": "o8.1"
+   "target_path": "kernel/asus/msm8953"
   },
   {
-   "remote": "kshatriya-abhay",
+    "repository" : "android_packages_resources_devicesettings",
+    "target_path": "packages/resources/devicesettings"
+  },
+  {
    "repository": "proprietary_vendor_asus_zenfone3",
-   "target_path": "vendor/asus/zenfone3",
-   "branch": "lineage-15.1"
+   "target_path": "vendor/asus/zenfone3"
   }
 ]
-
