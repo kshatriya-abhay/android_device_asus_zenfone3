@@ -8,7 +8,7 @@
     "target_path": "packages/resources/devicesettings"
   },
   {
-   "repository": "proprietary_vendor_asus_zenfone3",
+   "repository": "android_vendor_asus_zenfone3",
    "target_path": "vendor/asus/zenfone3"
   }
 ]
