@@ -9,6 +9,6 @@
   },
   {
    "repository": "android_vendor_asus_zenfone3",
-   "target_path": "vendor/asus/zenfone3"
+   "target_path": "vendor/asus"
   }
 ]
