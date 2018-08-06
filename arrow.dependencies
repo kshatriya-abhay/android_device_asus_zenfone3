@@ -10,5 +10,11 @@
   {
    "repository": "android_vendor_asus_zenfone3",
    "target_path": "vendor/asus"
+  },
+  {
+   "remote": "github",
+   "repository": "LineageOS/android_packages_apps_FlipFlap",
+   "target_path": "packages/apps/FlipFlap"  
+   "branch": "lineage-15.1"
   }
 ]
