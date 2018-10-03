@@ -4,7 +4,7 @@
     "target_path": "kernel/asus/msm8953"
   },
   {
-    "repository": "android_packages_resources_devicesettings",
-    "target_path": "packages/resources/devicesettings"
+    "repository": "android_vendor_asus_zenfone3",
+    "target_path": "vendor/asus"
   }
 ]
