@@ -1,5 +1,13 @@
 [
   {
+    "repository": "android_kernel_asus_msm8953",
+    "target_path": "kernel/asus/msm8953"
+  },
+  {
+    "repository": "android_vendor_asus_zenfone3",
+    "target_path": "vendor/asus"
+  },
+  {
     "repository": "android_device_qcom_common",
     "target_path": "device/qcom/common"
   }
