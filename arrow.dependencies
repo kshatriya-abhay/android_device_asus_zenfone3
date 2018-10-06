@@ -6,10 +6,6 @@
   {
     "repository": "android_vendor_asus_zenfone3",
     "target_path": "vendor/asus"
-  },
-  {
-    "repository": "android_device_qcom_common",
-    "target_path": "device/qcom/common"
   }
 ]
 
