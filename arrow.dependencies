@@ -6,6 +6,10 @@
   {
     "repository": "android_vendor_asus_zenfone3",
     "target_path": "vendor/asus"
+  },
+  {
+    "repository": "android_packages_resources_devicesettings",
+    "target_path": "packages/resources/devicesettings"
   }
 ]
 
