@@ -111,7 +111,7 @@ QCOM_BT_USE_BTNV := true
 QCOM_BT_USE_SMD_TTY := true
 
 # ANT+
-BOARD_ANT_WIRELESS_DEVICE := "qualcomm-hidl"
+BOARD_ANT_WIRELESS_DEVICE := "vfs-prerelease"
 
 # Camera
 USE_DEVICE_SPECIFIC_CAMERA := true
