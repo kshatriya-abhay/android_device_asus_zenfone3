@@ -25,10 +25,10 @@ $(call inherit-product, device/asus/zenfone3/device.mk)
 # Inherit from zenfone3 vendor
 $(call inherit-product, vendor/asus/zenfone3/zenfone3-vendor.mk)
 
-# Inherit some common Arrow stuff.
-$(call inherit-product, vendor/arrow/config/common.mk)
+# Inherit some common DU stuff.
+$(call inherit-product, vendor/du/config/common_full_phone.mk)
 
-PRODUCT_NAME := arrow_zenfone3
+PRODUCT_NAME := du_zenfone3
 PRODUCT_DEVICE := zenfone3
 PRODUCT_BRAND := asus
 PRODUCT_MANUFACTURER := asus
