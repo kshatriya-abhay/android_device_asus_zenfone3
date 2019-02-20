@@ -378,7 +378,6 @@ on property:ro.boot.ftm=1
     symlink /system/bin/btrftest /data/data/BtTest
 #ASUS_BSP---     Yunchung"link btrftest for ATD test"
 
-
 # ASUS_BSP+++ Vic "link PhoneInfoTest for ATD test"
     symlink /system/bin/PhoneInfoTest /data/data/PhoneInfoTest
     symlink /system/bin/SCurrentTest /data/data/SCurrentTest
@@ -854,7 +853,6 @@ service btwifimac /system/vendor/bin/sh /system/vendor/bin/btwifimac.sh
     oneshot
 #    seclabel u:r:btwifimac:s0
 # ASUS_BSP+++ Yunchung "add for bluetooth btwifimac service"
-
 
 service debugprofile /system/bin/sh /system/etc/start_debug.sh
     class late_start

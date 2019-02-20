@@ -274,6 +274,19 @@ vendor/bin/dpmQmiMgr|01d5f50ee8e86e03896f342c1a113f9d360bab6a
 vendor/lib64/com.qualcomm.qti.dpm.api@1.0.so:vendor/lib64/com.qualcomm.qti.dpm.api@1.0_vendor.so|ff9f1157b93f7b75a701c714837a8d622f1a8f79
 vendor/lib64/libdpmqmihal.so|25bcb5d6853ccbf30fbe38230f9442049688c49a
 
+# fm
+framework/com.asus.fm.jar
+vendor/bin/init.qti.fm.sh
+vendor/bin/fm_qsoc_patches
+etc/init/init.qti.fm.rc
+-lib/vendor.qti.hardware.fm@1.0.so
+-lib64/vendor.qti.hardware.fm@1.0.so
+vendor/lib/hw/vendor.qti.hardware.fm@1.0-impl.so
+vendor/lib/vendor.qti.hardware.fm@1.0_vendor.so
+vendor/lib64/hw/vendor.qti.hardware.fm@1.0-impl.so
+vendor/lib64/vendor.qti.hardware.fm@1.0_vendor.so
+
+
 # Gatekeeper
 vendor/lib/hw/gatekeeper.msm8953.so
 vendor/lib64/hw/gatekeeper.msm8953.so

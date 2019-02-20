@@ -502,9 +502,6 @@ service vendor.ss_ramdump /system/vendor/bin/subsystem_ramdump
     group system sdcard_rw sdcard_r media_rw
     disabled
 
-on property:hw.fm.init=*
-    write /sys/module/radio_iris_transport/parameters/fmsmd_set ${hw.fm.init}
-
 on property:ro.vendor.iocgrp.config=1
     mkdir /dev/blkio
     mount cgroup none /dev/blkio blkio
