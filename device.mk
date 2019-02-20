@@ -416,7 +416,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/wifi/p2p_supplicant_overlay.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/p2p_supplicant_overlay.conf \
     $(LOCAL_PATH)/configs/wifi/wpa_supplicant_overlay.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/wpa_supplicant_overlay.conf \
-    $(LOCAL_PATH)/configs/wifi/WCNSS_qcom_cfg.ini:$(TARGET_COPY_OUT_VENDOR)/firmware/wlan/prima/WCNSS_qcom_cfg.ini 
+    $(LOCAL_PATH)/configs/wifi/WCNSS_qcom_cfg.ini:$(TARGET_COPY_OUT_VENDOR)/firmware/wlan/prima/WCNSS_qcom_cfg.ini
 
 # Sensors
 PRODUCT_COPY_FILES += \
@@ -494,7 +494,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hidl.base@1.0 \
     android.hidl.allocator@1.0 \
-    android.hidl.manager@1.0-java
+    android.hidl.manager@1.0
 
 # Thermal
 PRODUCT_PACKAGES += \
