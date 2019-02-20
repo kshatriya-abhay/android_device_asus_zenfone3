@@ -195,6 +195,10 @@ PRODUCT_PACKAGES += \
     android.hardware.drm@1.0-service \
     android.hardware.drm@1.0-impl
 
+# Disable qmi EAP-SIM security
+DISABLE_EAP_PROXY := true
+
+
 # Display
 PRODUCT_PACKAGES += \
     gralloc.msm8953 \
