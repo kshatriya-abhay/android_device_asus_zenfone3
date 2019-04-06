@@ -25,10 +25,10 @@ $(call inherit-product, device/asus/zenfone3/device.mk)
 # Inherit from zenfone3 vendor
 $(call inherit-product-if-exists, vendor/asus/zenfone3/zenfone3-vendor.mk)
 
-# Inherit some common LineageOS stuff.
-$(call inherit-product, vendor/lineage/config/common_full_phone.mk)
+# Inherit some common POSP stuff.
+$(call inherit-product, vendor/potato/config/common_full_phone.mk)
 
-PRODUCT_NAME := lineage_zenfone3
+PRODUCT_NAME := potato_zenfone3
 PRODUCT_DEVICE := zenfone3
 PRODUCT_BRAND := asus
 PRODUCT_MANUFACTURER := asus

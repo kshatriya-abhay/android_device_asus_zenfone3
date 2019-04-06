@@ -18,7 +18,7 @@ DEVICE_PATH := device/asus/zenfone3
 
 BOARD_VENDOR := asus-qcom
 
-WITH_LINEAGE_CHARGER := false
+# WITH_LINEAGE_CHARGER := false
 
 TARGET_SPECIFIC_HEADER_PATH := $(DEVICE_PATH)/include
 
