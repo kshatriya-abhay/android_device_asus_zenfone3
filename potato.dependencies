@@ -1,0 +1,14 @@
+[
+  {
+    "remote": "github",
+    "repository":  "PotatoDevices/vendor_asus_zenfone3",
+    "target_path": "vendor/asus",
+    "branch": "baked-release"
+  },
+  {
+    "remote": "github",
+    "repository": "PotatoDevices/kernel_asus_msm8953",
+    "target_path": "kernel/asus/msm8953",
+    "branch": "baked-release"
+  }
+]
