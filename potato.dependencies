@@ -1,0 +1,14 @@
+[
+  {
+    "remote": "github",
+    "repository":  "zenfone3-dev/proprietary_vendor_asus",
+    "target_path": "vendor/asus",
+    "branch": "lineage-16.0"
+  },
+  {
+    "remote": "github",
+    "repository": "zenfone3-dev/android_kernel_asus_msm8953",
+    "target_path": "kernel/asus/msm8953",
+    "branch": "lineage-16.0"
+  }
+]
