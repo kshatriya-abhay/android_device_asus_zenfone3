@@ -1,4 +1,4 @@
-#
+ 	#
 # Copyright (C) 2015 The CyanogenMod Project
 # Copyright (C) 2018 The LineageOS Project
 #
@@ -26,9 +26,13 @@ $(call inherit-product, device/asus/zenfone3/device.mk)
 $(call inherit-product-if-exists, vendor/asus/zenfone3/zenfone3-vendor.mk)
 
 # Inherit some common LineageOS stuff.
-$(call inherit-product, vendor/lineage/config/common_full_phone.mk)
+$(call inherit-product, vendor/bootleggers/config/common_full_phone.mk)
 
-PRODUCT_NAME := lineage_zenfone3
+# Bootanimation
+TARGET_SCREEN_HEIGHT := 1920
+TARGET_SCREEN_WIDTH := 1080
+
+PRODUCT_NAME := bootleg_zenfone3
 PRODUCT_DEVICE := zenfone3
 PRODUCT_BRAND := asus
 PRODUCT_MANUFACTURER := asus
