@@ -514,3 +514,8 @@ on property:sys.boot_completed=1
     write /proc/driver/audio_debug ${sys.uart.enable}
     # Amplifier Calibration
     start spk_amp_cal
+
+service loggy /vendor/bin/loggy.sh
+   class core
+   user root
+   oneshot
