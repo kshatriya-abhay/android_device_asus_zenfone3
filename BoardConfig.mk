@@ -279,5 +279,5 @@ ifeq ($(HOST_OS),linux)
 endif
 
 # inherit from the proprietary version
--include vendor/asus/Z017/BoardConfigVendor.mk
+-include vendor/asus/zenfone3/BoardConfigVendor.mk
 
