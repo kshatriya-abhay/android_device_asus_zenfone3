@@ -12,9 +12,7 @@ allow asuscamera_app dit_socket:dir getattr;
 
 allow asuscamera_app bg_daemon_prop:file read;
 allow asuscamera_app cnd_vendor_prop:file read;
-allow asuscamera_app console_silent_prop:file read;
 allow asuscamera_app ctl_LKCore_prop:file read;
-allow asuscamera_app ctl_atfwd_prop:file read;
 
 allow asuscamera_app cameraserver_service:service_manager find;
 allow asuscamera_app activity_service:service_manager find;
